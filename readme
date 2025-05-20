@@ -1,0 +1,140 @@
+DOCKER RUN
+
+Path
+----
+C:\Users\poorn\docker-volume\workspace\04-selenium-grid\01-simple-grid
+
+
+docker-compose up
+
+http://localhost:4444/ui/#/
+
+OR With IP
+
+http://172.21.208.1:4444/ui/
+
+pwd : secret
+
+ctr+c : stop
+docker-compose down
+
+
+to create video in docker :
+https://github.com/SeleniumHQ/docker-selenium/blob/trunk/docker-compose-v3-video.yml
+
+run command
+ java -cp 'libs/*' org.testng.TestNG test-suites/vendor-portal.xml
+
+ package:
+ mvn clean package -DskipTests
+docker build -t=poohegde/selenium .
+
+exexcution with thread count :
+PS C:\Users\poorn\docker-volume\workspace\03-automation-framework\selenium-docker\target\docker-resources> java -cp 'libs/*' org.testng.TestNG -threadcount 2 test-suites/vendor-portal.xml
+
+
+
+Running Tests
+TestNG parameters
+Running a test suite
+java -cp 'libs/*' org.testng.TestNG test-suites/flight-reservation.xml
+
+Running a test suite with specific thread count
+java -cp 'libs/*' org.testng.TestNG -threadcount 2 test-suites/flight-reservation.xml
+
+TestNG by default creates test-output directory. You can change it with -d option.
+java -cp 'libs/*' org.testng.TestNG -threadcount 2 -d result test-suites/flight-reservation.xml
+
+System Properties
+To pass the browser option
+java -Dbrowser=chrome -cp 'libs/*' org.testng.TestNG test-suites/flight-reservation.xml
+
+To run the tests using Selenium Grid
+java -Dselenium.grid.enabled=true -Dselenium.grid.hubHost=localhost -cp 'libs/*' org.testng.TestNG test-suites/flight-reservation.xml
+
+To run the tests using Selenium Grid with specific thread count
+java -Dselenium.grid.enabled=true -Dselenium.grid.hubHost=localhost -cp 'libs/*' org.testng.TestNG test-suites/flight-reservation.xml -threadcount 2
+
+
+this works in windows :
+java "-Dselenium.grid.enabled=true" "-Dselenium.grid.hubHost=localhost" -cp "libs/*" org.testng.TestNG -threadcount 2 -d result test-suites/flight-reservation.xml
+
+
+ java "-Dselenium.grid.enabled=true" "-Dbrowser=firefox" -cp "libs/*" org.testng.TestNG -threadcount 2 -d result test-suites/flight-reservation.xml
+
+Note : PowerShell sometimes messes with arguments that include dots or equal signs unless they are properly quoted.Fix: Wrap the entire -D arguments in double quotes or escape them
+                                                                                                                   Try this
+java "-Dselenium.grid.enabled=true" "-Dselenium.grid.hubHost=localhost" -cp "libs/*" org.testng.TestNG -threadcount 2 -d result test-suites/flight-reservation.xml
+
+
+for java image : docker can use either of them as below : eclipse-temurin or bellsoft/liberica-openjdk-alpine
+
+https://hub.docker.com/_/eclipse-temurin
+
+https://hub.docker.com/r/bellsoft/liberica-openjdk-alpine
+
+to build docker use below commands where "poohegde" is docker hub
+docker build -t=poohegde/selenium .
+
+
+create docker container
+docker run -it poohegde/selenium
+
+
+ docker run -it -v /home/selenium-docker/result:/home/selenium-docker/test-output poohegde/seleni
+um
+
+find IP :
+windows : ipconfig
+mac : ifconfig
+
+// running in background mode
+docker-compose up -d
+
+
+installing in docker machine
+apk add packagename : ex : apk add curl , apk add jq...etc
+or apk add curl jq
+
+
+to check logs we can use below command
+docker-compose logs flight-reservation
+docker-compose logs vendor-portal
+
+
+you can't chain commands like that on the same line with an environment variable assignment (unlike in bash).
+ You need to run them on two separate lines:
+
+✅ Correct PowerShell Usage
+powershell
+Copy
+Edit
+$env:BROWSER = "chrome"
+docker-compose up
+
+
+jenkins admin password or key
+5c850cc92c1641f9bba59071037cd1e0
+
+http://localhost:8080/
+username : admin
+password : admin
+
+jenkins run in  node directory
+java -jar agent.jar -url http://localhost:8080/ -secret 691603888fc43f2368f602b207b58c1462538f73e748f73bb8d56c28e0d69a9f -name NODE1 -webSocket -workDir "C:\Users\poorn\docker-volume\workspace\06-jenkins-ci-cd\01-jenkins\voulmes\node"
+
+
+GIT
+
+…or create a new repository on the command line
+echo "# selenium-docker" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/Poohegde/selenium-docker.git
+git push -u origin main
+…or push an existing repository from the command line
+git remote add origin https://github.com/Poohegde/selenium-docker.git
+git branch -M main
+git push -u origin main

@@ -1,0 +1,14 @@
+{
+  "username": "mike",
+  "password": "mike",
+  "monthlyEarning": "$55,000",
+  "annualEarning": "$563,300",
+  "profitMargin": "80%",
+  "availableInventory": "45",
+  "searchKeyword": "miami",
+  "searchResultsCount": 10
+
+
+}
+
+C:\Users\poorn\docker-volume\workspace\03-automation-framework\selenium-docker\src\test\resources\test-data\vendor-portal
